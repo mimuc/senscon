@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.183716, g: 0.22812733, b: 0.2989431, a: 1}
+  m_IndirectSpecularColor: {r: 0.18371573, g: 0.22812702, b: 0.29894295, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -228,7 +228,57 @@ Transform:
   m_Father: {fileID: 2082574700}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 139.11, z: 0}
---- !u!43 &72599962
+--- !u!1 &82790601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82790603}
+  - component: {fileID: 82790602}
+  m_Layer: 0
+  m_Name: WaypointOut1 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &82790602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82790601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af06c26c608f3ef4395ea52f3ba14c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousWaypoint: {fileID: 0}
+  nextWaypoint: {fileID: 472079372}
+  isStart: 0
+  isEnd: 0
+  isReset: 1
+  width: 4.4
+  branches: []
+--- !u!4 &82790603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82790601}
+  m_LocalRotation: {x: 0, y: -0.73822, z: 0, w: 0.67456007}
+  m_LocalPosition: {x: -35.85, y: -4.65, z: 53.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1844328133}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: -95.16, z: 0}
+--- !u!43 &119670060
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,56 +442,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &82790601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 82790603}
-  - component: {fileID: 82790602}
-  m_Layer: 0
-  m_Name: WaypointOut1 (5)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &82790602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82790601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af06c26c608f3ef4395ea52f3ba14c75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousWaypoint: {fileID: 0}
-  nextWaypoint: {fileID: 472079372}
-  isStart: 0
-  isEnd: 0
-  isReset: 1
-  width: 4.4
-  branches: []
---- !u!4 &82790603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82790601}
-  m_LocalRotation: {x: 0, y: -0.73822, z: 0, w: 0.67456007}
-  m_LocalPosition: {x: -35.85, y: -4.65, z: 53.21}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1844328133}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: -95.16, z: 0}
 --- !u!1 &122894499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,11 +1754,11 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1074495454}
+      objectReference: {fileID: 1503249706}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 72599962}
+      objectReference: {fileID: 119670060}
     - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -2222,7 +2222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066601765}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4a1a348c25d2c24ebdb077a9714c508, type: 3}
   m_Name: 
@@ -2250,41 +2250,6 @@ MonoBehaviour:
   minCount: 10
   maxCount: 40
   currencount: 0
---- !u!21 &1074495454
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1097724943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,7 +2574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb82659d11a6c7544a88c06526c8c5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  participantId: 202
+  participantId: 207
   rootFolder: ./LogData/
 --- !u!4 &1233132790
 Transform:
@@ -2995,7 +2960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356713380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8f32ce78c8bb04599fb6ea618cb6da, type: 3}
   m_Name: 
@@ -3325,6 +3290,41 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1479746524}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1503249706
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1520510191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,7 +3429,7 @@ GameObject:
   - component: {fileID: 1582525185}
   - component: {fileID: 1582525184}
   m_Layer: 0
-  m_Name: LSLInputECG
+  m_Name: LSLInputPPG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3447,9 +3447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f32ce78c8bb04599fb6ea618cb6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: ECG
+  inputName: PPG
   StreamType: 1
-  StreamValue: PolarH10
+  StreamValue: PPG
   streamTimeout: 0
   streamMinimum: 1
   scaleInput: 0.1
@@ -3460,7 +3460,7 @@ MonoBehaviour:
   lastValues: []
   bufferCount: 50
   samplesTotal: 0
-  samplesBuffer: 5000
+  samplesBuffer: 30
   InfoHostName: 
   InfoType: 
   InfoName: 
@@ -4612,7 +4612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputName: EDA
   StreamType: 1
-  StreamValue: LiveAmpSN-055602-0306
+  StreamValue: EDA
   streamTimeout: 0
   streamMinimum: 1
   scaleInput: 0.1
@@ -4623,7 +4623,7 @@ MonoBehaviour:
   lastValues: []
   bufferCount: 50
   samplesTotal: 0
-  samplesBuffer: 5000
+  samplesBuffer: 30
   InfoHostName: 
   InfoType: 
   InfoName: 

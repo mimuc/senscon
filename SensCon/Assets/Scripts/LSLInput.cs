@@ -8,7 +8,7 @@ public class LSLInput : MonoBehaviour
 {
     public string inputName;
     public LSLType StreamType = LSLType.type;
-    public string StreamValue = "EEG";
+    public string StreamValue = "";
     public double streamTimeout = 0.0;
     public int streamMinimum = 1;
     public float scaleInput = 0.1f;
@@ -28,7 +28,7 @@ public class LSLInput : MonoBehaviour
 
     public LimitedSizeList<SignalSample1D> samples;
     public int samplesTotal;
-    public int samplesBuffer = 5000;
+    public int samplesBuffer = 30;
     
     public string InfoHostName; //Hostname of the providing machine
     public string InfoType;
@@ -50,7 +50,6 @@ public class LSLInput : MonoBehaviour
         unixTime = UnixTime.GetTime();
         if (streamInlet == null)
         {
-            //Debug.Log("Init LSL Input " + name);
             streamInfos = liblsl.resolve_stream(StreamType.ToString(), StreamValue, streamMinimum, streamTimeout);
             if (streamInfos.Length > 0)
             {
@@ -85,6 +84,7 @@ public class LSLInput : MonoBehaviour
                 }
                 newSample = new SignalSample1D(unixTime, lastTimeStamp, lastValues);
                 logger.write(inputName, newSample);
+
                 if (samples == null)
                     samples = new LimitedSizeList<SignalSample1D>(samplesBuffer);
                 samples.Add(newSample);

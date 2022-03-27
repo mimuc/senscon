@@ -20,13 +20,13 @@ public class DataLogger : MonoBehaviour
     StreamWriter swVisitorCount;
     StreamWriter swAdaption;
 
-    StreamWriter swEda, swEeg, swEcg;
+    StreamWriter swEda, swEeg, swPpg;
 
     StringBuilder stringbuilderEda = new StringBuilder();
     StringBuilder stringbuilderEeg = new StringBuilder();
-    StringBuilder stringbuilderEcg = new StringBuilder();
+    StringBuilder stringbuilderPpg = new StringBuilder();
 
-    private int countedEda = 0, countedEeg = 0, countedEcg = 0;
+    private int countedEda = 0, countedEeg = 0, countedPpg = 0;
 
 
 
@@ -118,12 +118,12 @@ public class DataLogger : MonoBehaviour
             swEeg.Flush();
         }
 
-        if (swEcg == null)
+        if (swPpg == null)
         {
-            filepath = rootFolder + "ID" + participantId + "-ECG.csv";
-            swEcg = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swEcg.WriteLine("Time,TimeLsl,Value");
-            swEcg.Flush();
+            filepath = rootFolder + "ID" + participantId + "-PPG.csv";
+            swPpg = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
+            swPpg.WriteLine("Time,TimeLsl,Value");
+            swPpg.Flush();
         }
 
 
@@ -237,7 +237,7 @@ public class DataLogger : MonoBehaviour
 
     internal void write(string name, SignalSample1D s)
     {
-        if (swEda == null || swEeg == null || swEcg == null)
+        if (swEda == null || swEeg == null || swPpg == null)
         {
             init();
         }
@@ -271,22 +271,22 @@ public class DataLogger : MonoBehaviour
                 swEeg.Flush();
             }
         }
-        else if (name.ToLower() == "ecg")
+        else if (name.ToLower() == "ppg")
         {
-            if (s.values.Length == 1)
+            if (s.values.Length == 4)
             {
-                stringbuilderEcg.AppendFormat("{0},{1},{2}{3}", s.time, s.timeLsl, s.values[0], Environment.NewLine);
+                stringbuilderPpg.AppendFormat("{0},{1},{2}{3}", s.time, s.timeLsl, s.values[0], Environment.NewLine);
             }
             else
             {
                 throw new NotImplementedException("Your electrode count is not 1 please ajust the script");
             }
-            countedEcg++;
-            if (countedEcg % 1000 == 0)
+            countedPpg++;
+            if (countedPpg % 1000 == 0)
             {
-                swEcg.WriteLine(stringbuilderEcg);
-                stringbuilderEcg.Clear();
-                swEcg.Flush();
+                swPpg.WriteLine(stringbuilderPpg);
+                stringbuilderPpg.Clear();
+                swPpg.Flush();
             }
         }
         else
@@ -305,9 +305,9 @@ public class DataLogger : MonoBehaviour
         {
             swEeg.Flush();
         }
-        if (swEcg != null)
+        if (swPpg != null)
         {
-            swEcg.Flush();
+            swPpg.Flush();
         }
     }
 }
