@@ -8,7 +8,6 @@ public class Mytask : MonoBehaviour
 {
     enum STATES { start, end, wait, move, baseline };
     public BlockDesigner blockDesigner;
-    public PedestrianSpawner pedestrianSpawner;
 
     STATES state = STATES.start;
 
@@ -38,7 +37,6 @@ public class Mytask : MonoBehaviour
 
     public bool showFeedback = true;
 
-    public CountPeople counterPeople;
     public RecordBaseline recordBaseline = null;
     public bool isRecodingBaseline = false;
 
@@ -128,11 +126,9 @@ public class Mytask : MonoBehaviour
             }
             else if (nextBlock == 6) {
                 adaptiveEDA.isActive = true;
-                pedestrianSpawner.pedestriansToSpawn = 25;
                 logger.writeState(timestamp, "start", nextBlock, 2);
             } else {
                 adaptiveEDA.isActive = false;
-                pedestrianSpawner.pedestriansToSpawn = 5 + ((nextBlock-1)*10);
                 logger.writeState(timestamp, "start", nextBlock, 1);
             }
 
@@ -144,7 +140,6 @@ public class Mytask : MonoBehaviour
                 feedbackStatsCounter = 0;
                 colorList.Clear();
                 generateSpheres();
-                counterPeople.setCounterEnabled(true);
                 blockDesigner.startRecoding();
             }
 
@@ -162,8 +157,6 @@ public class Mytask : MonoBehaviour
             state = STATES.baseline;
             colorList.Clear();
             generateSpheres();
-            counterPeople.setCounterEnabled(true);
-            pedestrianSpawner.pedestriansToSpawn = recordBaseline.countForBaselineRecording;
             logger.writeState(timestamp, "baselineStart", recordBaseline.countForBaselineRecording, 1);
         }
         else if (Input.GetKeyDown("left") && STATES.wait == state)
@@ -186,7 +179,6 @@ public class Mytask : MonoBehaviour
         if (recordBaseline.isBaselineRecoringDone() == true && isRecodingBaseline == true) {
             logger.writeState(timestamp, "baselineEnd", recordBaseline.countForBaselineRecording, recordBaseline.getBaselineSlope());
             isRecodingBaseline = false;
-            counterPeople.setCounterEnabled(false);
             state = STATES.start;
             if (sphere != null)
             {
@@ -197,7 +189,6 @@ public class Mytask : MonoBehaviour
         if (blockDesigner.isDone && STATES.start != state && isRecodingBaseline == false)
         {
             logger.writeState(timestamp, "end", -1, -1);
-            counterPeople.setCounterEnabled(false);
             state = STATES.start;
             if (sphere != null)
             {
