@@ -115,7 +115,7 @@ public class DataLogger : MonoBehaviour
         {
             filepath = rootFolder + "ID" + participantId + "-MEDA.csv";
             swM_Eda = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swM_Eda.WriteLine("Time,TimeLsl,Value");
+            swM_Eda.WriteLine("Time,TimeLsl,EDA,Heartrate");
             swM_Eda.Flush();
         }
 
@@ -272,7 +272,14 @@ public class DataLogger : MonoBehaviour
             }
         } else if (name.ToLower() == "m_eda")
         {
-            stringbuilderM_Eda.AppendFormat("{0},{1},{2}{3}", s.time, s.timeLsl, s.values[0], Environment.NewLine);
+            
+            if (s.values.Length == 2)
+            {
+                stringbuilderM_Eda.AppendFormat("{0},{1},{2},{3}{4}", s.time, s.timeLsl, s.values[0], s.values[1], Environment.NewLine);
+            }
+            else {
+                throw new NotImplementedException("Your electrode count is not 2 please ajust the script");
+            }
 
             countedM_Eda++;
             if (countedM_Eda % 1000 == 0)
@@ -320,7 +327,7 @@ public class DataLogger : MonoBehaviour
         }
         else if (name.ToLower() == "m_ppg")
         {
-            if (s.values.Length == 1)
+            if (s.values.Length == 2)
             {
                 stringbuilderM_Ppg.AppendFormat("{0},{1},{2}{3}", s.time, s.timeLsl, s.values[0], Environment.NewLine);
             }
