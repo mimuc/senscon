@@ -28,7 +28,7 @@ public class DataLogger : MonoBehaviour
     StringBuilder stringbuilderM_Eda = new StringBuilder();
     StringBuilder stringbuilderM_Ppg = new StringBuilder();
 
-    private int countedEda = 0, countedEeg = 0, countedPpg = 0, countedM_Eda, countedM_Ppg;
+    private int countedEda = 0, countedEeg = 0, countedPpg = 0, countedM_Eda = 0, countedM_Ppg = 0;
 
 
 
@@ -114,9 +114,9 @@ public class DataLogger : MonoBehaviour
         if (swM_Eda == null)
         {
             filepath = rootFolder + "ID" + participantId + "-MEDA.csv";
-            swEda = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swEda.WriteLine("Time,TimeLsl,Value");
-            swEda.Flush();
+            swM_Eda = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
+            swM_Eda.WriteLine("Time,TimeLsl,Value");
+            swM_Eda.Flush();
         }
 
         if (swEeg == null)
@@ -139,9 +139,9 @@ public class DataLogger : MonoBehaviour
         if (swM_Ppg == null)
         {
             filepath = rootFolder + "ID" + participantId + "-MPPG.csv";
-            swPpg = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swPpg.WriteLine("Time,TimeLsl,Heartrate");
-            swPpg.Flush();
+            swM_Ppg = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
+            swM_Ppg.WriteLine("Time,TimeLsl,Heartrate");
+            swM_Ppg.Flush();
         }
 
 
@@ -277,7 +277,7 @@ public class DataLogger : MonoBehaviour
             countedM_Eda++;
             if (countedM_Eda % 1000 == 0)
             {
-                swM_Eda.WriteLine(stringbuilderEda);
+                swM_Eda.WriteLine(stringbuilderM_Eda);
                 stringbuilderM_Eda.Clear();
                 swM_Eda.Flush();
             }
@@ -304,11 +304,11 @@ public class DataLogger : MonoBehaviour
         {
             if (s.values.Length == 4)
             {
-                stringbuilderPpg.AppendFormat("{0},{1},{2}{3}{4}{5}", s.time, s.timeLsl, s.values[0], s.values[1], s.values[2], s.values[3], Environment.NewLine);
+                stringbuilderPpg.AppendFormat("{0},{1},{2},{3},{4},{5}{6}", s.time, s.timeLsl, s.values[0], s.values[1], s.values[2], s.values[3], Environment.NewLine);
             }
             else
             {
-                throw new NotImplementedException("Your electrode count is not 1 please ajust the script");
+                throw new NotImplementedException("Your electrode count is not 4 please ajust the script");
             }
             countedPpg++;
             if (countedPpg % 1000 == 0)
