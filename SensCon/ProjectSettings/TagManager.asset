@@ -11,6 +11,15 @@ TagManager:
   - visitor
   - nbacktask
   - people
+  - missed
+  - PURPLE
+  - ORANGE
+  - RED
+  - GREEN
+  - BLUE
+  - YELLOW
+  - ignore
+  - controller
   layers:
   - Default
   - TransparentFX
