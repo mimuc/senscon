@@ -26,7 +26,6 @@ namespace Valve.VR.Extras
 
         Transform previousContact = null;
 
-        public bool isPressed = false;
 
         private void Start()
         {
@@ -83,8 +82,6 @@ namespace Valve.VR.Extras
                 PointerClick(this, e);
         }
 
-
-
         public virtual void OnPointerOut(PointerEventArgs e)
         {
             if (PointerOut != null)
@@ -135,20 +132,6 @@ namespace Valve.VR.Extras
                 dist = hit.distance;
             }
 
-            if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
-            {
-                pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
-                pointer.GetComponent<MeshRenderer>().material.color = clickColor;
-                isPressed = true;
-            }
-            else
-            {
-                pointer.transform.localScale = new Vector3(thickness, thickness, dist);
-                pointer.GetComponent<MeshRenderer>().material.color = color;
-                isPressed = false;
-            }
-
-
             if (bHit && interactWithUI.GetStateUp(pose.inputSource))
             {
                 PointerEventArgs argsClick = new PointerEventArgs();
@@ -156,20 +139,19 @@ namespace Valve.VR.Extras
                 argsClick.distance = hit.distance;
                 argsClick.flags = 0;
                 argsClick.target = hit.transform;
-                argsClick.clickState = ClickState.Up;
-                OnPointerClick(argsClick);
-            }
-            else if (bHit && interactWithUI.GetStateDown(pose.inputSource))
-            {
-                PointerEventArgs argsClick = new PointerEventArgs();
-                argsClick.fromInputSource = pose.inputSource;
-                argsClick.distance = hit.distance;
-                argsClick.flags = 0;
-                argsClick.target = hit.transform;
-                argsClick.clickState = ClickState.Down;
                 OnPointerClick(argsClick);
             }
 
+            if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
+            {
+                pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
+                pointer.GetComponent<MeshRenderer>().material.color = clickColor;
+            }
+            else
+            {
+                pointer.transform.localScale = new Vector3(thickness, thickness, dist);
+                pointer.GetComponent<MeshRenderer>().material.color = color;
+            }
             pointer.transform.localPosition = new Vector3(0f, 0f, dist / 2f);
         }
     }
@@ -180,14 +162,6 @@ namespace Valve.VR.Extras
         public uint flags;
         public float distance;
         public Transform target;
-        public ClickState clickState;
-    }
-
-
-    public enum ClickState
-    {
-        Down,
-        Up,
     }
 
     public delegate void PointerEventHandler(object sender, PointerEventArgs e);

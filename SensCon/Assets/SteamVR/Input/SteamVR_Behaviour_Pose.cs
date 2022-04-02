@@ -28,8 +28,6 @@ namespace Valve.VR
         /// <summary>Returns whether or not the pose action is bound and able to be updated</summary>
         public bool isActive { get { return poseAction[inputSource].active; } }
 
-        public string InputSource { get; set; }
-
 
         /// <summary>This Unity event will fire whenever the position or rotation of this transform is updated.</summary>
         public SteamVR_Behaviour_PoseEvent onTransformUpdated;
