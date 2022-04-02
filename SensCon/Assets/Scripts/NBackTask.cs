@@ -11,6 +11,9 @@ public class NBackTask : MonoBehaviour
 
     STATES state = STATES.start;
 
+
+    public DataLoggerSimple loggerSimple;
+
     public GameObject feedbackCorrect;
     public GameObject feedbackWrong;
     private Coroutine disableFeedback;
@@ -99,6 +102,7 @@ public class NBackTask : MonoBehaviour
             {
                 state = STATES.end;
                 logger.writeState(timestamp, "end", nextBlock, -1);
+                loggerSimple.writeState(timestamp, "end", "");
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -116,7 +120,9 @@ public class NBackTask : MonoBehaviour
                 blockDesigner.startRecoding();
             }
 
-            
+            loggerSimple.writeState(timestamp, "start", "");
+
+
         }
         else if (Input.GetKeyDown("left") && STATES.wait == state)
         {
@@ -138,6 +144,7 @@ public class NBackTask : MonoBehaviour
         if (blockDesigner.isDone && STATES.start != state)
         {
             logger.writeState(timestamp, "end", -1, -1);
+            loggerSimple.writeState(timestamp, "end", "");
             state = STATES.start;
             if (sphere != null)
             {

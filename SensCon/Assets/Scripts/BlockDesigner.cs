@@ -5,7 +5,7 @@ using System.Linq;
 
 public class BlockDesigner : MonoBehaviour
 {
-    public List<int> order = new List<int>{ 1, 2, 3, 4, 5, 6 };
+    public List<int> order = new List<int>{ 1};
 
     private double timeStart = 0.0;
     public double duration = 360.0;

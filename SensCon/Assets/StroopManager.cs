@@ -23,6 +23,8 @@ public class StroopManager : MonoBehaviour
 
     private STATES state = STATES.waitForStart;
 
+    private isdone = false;
+
     private List<StroopItem> taskList = new List<StroopItem>();
 
     // Start is called before the first frame update
@@ -40,8 +42,16 @@ public class StroopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
+        if (Input.GetKeyDown("s"))
+        {
+            ClickStart();
+        }
 
+        if (Input.GetKeyDown("e"))
+        {
+            done = true;
+        }
+    }
 
     public void ClickStart()
     {
@@ -57,6 +67,11 @@ public class StroopManager : MonoBehaviour
 
     private void next()
     {
+        if (isdone == true) {
+            return;
+            taskCanvas.active = false;
+        }
+
         if (counter + 1 != maxTasks)
         {
             update(taskList.ElementAt(counter));

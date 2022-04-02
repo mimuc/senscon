@@ -36,7 +36,7 @@ public class LSLInput : MonoBehaviour
     public string InfoChannelFormat; //Format/type of each channel
     public int    InfoChannelCount; //Number of channels per sample. 
     public double InfoNominalSrate; //The sampling rate (in Hz) as by the data source
-    public DataLogger logger;
+    public DataLoggerSensor logger;
 
     // Start is called before the first frame update
     void Start()
