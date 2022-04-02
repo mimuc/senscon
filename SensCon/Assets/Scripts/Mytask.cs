@@ -37,7 +37,6 @@ public class Mytask : MonoBehaviour
 
     public bool showFeedback = true;
 
-    public RecordBaseline recordBaseline = null;
     public bool isRecodingBaseline = false;
 
     public DataLogger logger;
@@ -76,16 +75,7 @@ public class Mytask : MonoBehaviour
 #endif
         }
 
-        if (recordBaseline == null)
-        {
-            Debug.LogError("recordBaseline not set");
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-                Application.Quit();
-#endif
-        }
-
+        
         feedbackCorrect.SetActive(false);
         feedbackWrong.SetActive(false);
         feedbackStats.SetActive(false);
@@ -134,7 +124,6 @@ public class Mytask : MonoBehaviour
         else if(Input.GetKeyDown("b") && STATES.start == state) //Start the baseline task
         {
             isRecodingBaseline = true;
-            recordBaseline.startRecoding();
             feedbackCorrect.SetActive(false);
             feedbackWrong.SetActive(false);
             counterBalls = 0;
@@ -142,7 +131,7 @@ public class Mytask : MonoBehaviour
             state = STATES.baseline;
             colorList.Clear();
             generateSpheres();
-            logger.writeState(timestamp, "baselineStart", recordBaseline.countForBaselineRecording, 1);
+            //logger.writeState(timestamp, "baselineStart", recordBaseline.countForBaselineRecording, 1);
         }
         else if (Input.GetKeyDown("left") && STATES.wait == state)
         {
@@ -161,8 +150,8 @@ public class Mytask : MonoBehaviour
             counterBalls++;
         }
 
-        if (recordBaseline.isBaselineRecoringDone() == true && isRecodingBaseline == true) {
-            logger.writeState(timestamp, "baselineEnd", recordBaseline.countForBaselineRecording, recordBaseline.getBaselineSlope());
+        if (isRecodingBaseline == true) {
+            //logger.writeState(timestamp, "baselineEnd", recordBaseline.countForBaselineRecording, recordBaseline.getBaselineSlope());
             isRecodingBaseline = false;
             state = STATES.start;
             if (sphere != null)
