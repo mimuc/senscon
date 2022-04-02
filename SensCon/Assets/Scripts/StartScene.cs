@@ -54,8 +54,8 @@ public class StartScene : MonoBehaviour {
 
     void Start () {
         //SetLanguage=de deutsch default
-        Localize.SetCurrentLanguage(SystemLanguage.German);
-        SaveInfo.SetLang(SystemLanguage.German);
+        Localize.SetCurrentLanguage(SystemLanguage.English);
+        SaveInfo.SetLang(SystemLanguage.English);
         id = SaveInfo.GetID();
         subjectID = GameObject.Find("SubjectID").GetComponent<Text>();
         welcome = GameObject.Find("Welcome").GetComponent<Text>();
@@ -137,7 +137,7 @@ public class StartScene : MonoBehaviour {
     }
     private void ResetLanguage()
     {
-        if (Locale.CurrentLanguage == "German")
+        /*if (Locale.CurrentLanguage == "German")
         {
             Localize.SetCurrentLanguage(SystemLanguage.German);
         }
@@ -146,8 +146,8 @@ public class StartScene : MonoBehaviour {
             Localize.SetCurrentLanguage(SystemLanguage.Dutch);
         }
         else
-        {
+        {*/
             Localize.SetCurrentLanguage(SystemLanguage.English);
-        }
+        //}
     }
 }
