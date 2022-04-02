@@ -23,7 +23,7 @@ public class StroopManager : MonoBehaviour
 
     private STATES state = STATES.waitForStart;
 
-    private isdone = false;
+    private bool isdone = false;
 
     private List<StroopItem> taskList = new List<StroopItem>();
 
@@ -49,7 +49,7 @@ public class StroopManager : MonoBehaviour
 
         if (Input.GetKeyDown("e"))
         {
-            done = true;
+            isdone = true;
         }
     }
 
@@ -68,8 +68,8 @@ public class StroopManager : MonoBehaviour
     private void next()
     {
         if (isdone == true) {
-            return;
             taskCanvas.active = false;
+            return;
         }
 
         if (counter + 1 != maxTasks)
