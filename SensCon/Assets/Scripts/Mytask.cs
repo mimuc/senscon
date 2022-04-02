@@ -40,8 +40,6 @@ public class Mytask : MonoBehaviour
     public RecordBaseline recordBaseline = null;
     public bool isRecodingBaseline = false;
 
-    public AdaptiveEDA adaptiveEDA = null;
-
     public DataLogger logger;
 
     // Start is called before the first frame update
@@ -100,11 +98,6 @@ public class Mytask : MonoBehaviour
     {
         double timestamp = UnixTime.GetTime();
 
-        if (Input.GetKeyDown("a"))
-        {
-            adaptiveEDA.isActive = !adaptiveEDA.isActive;
-        }
-
         if (Input.GetKeyDown("s") && STATES.start == state) //Start the task
         {
 
@@ -124,13 +117,6 @@ public class Mytask : MonoBehaviour
                 Application.Quit();
 #endif
             }
-            else if (nextBlock == 6) {
-                adaptiveEDA.isActive = true;
-                logger.writeState(timestamp, "start", nextBlock, 2);
-            } else {
-                adaptiveEDA.isActive = false;
-                logger.writeState(timestamp, "start", nextBlock, 1);
-            }
 
             if (state == STATES.wait) {
                 isRecodingBaseline = false;
@@ -149,7 +135,6 @@ public class Mytask : MonoBehaviour
         {
             isRecodingBaseline = true;
             recordBaseline.startRecoding();
-            adaptiveEDA.isActive = false;
             feedbackCorrect.SetActive(false);
             feedbackWrong.SetActive(false);
             counterBalls = 0;
