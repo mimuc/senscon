@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashColor: red
-  mytask: {fileID: 9000841247625586147}
+  task: {fileID: 0}
 --- !u!54 &33962723
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &813619787
 PrefabInstance:
@@ -304,11 +304,11 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1478045197}
+      objectReference: {fileID: 1611289547}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 955555135}
+      objectReference: {fileID: 1011261227}
     - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -333,12 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa46cef526ce00646b67f452a1e360a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logger: {fileID: 1233132789}
-  laserPointer: {fileID: 813619791}
-  onTriggerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  activeObject: {fileID: 0}
 --- !u!114 &813619791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,8 +357,7 @@ MonoBehaviour:
   pointer: {fileID: 0}
   addRigidBody: 1
   reference: {fileID: 0}
-  isPressed: 0
---- !u!43 &955555135
+--- !u!43 &1011261227
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -621,7 +614,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1233132788
 GameObject:
@@ -826,41 +819,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1478045197
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1520510191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,13 +1006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d050c1e3560ee7439005cc46ea50421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logger: {fileID: 1233132789}
-  input: {fileID: 1600266877}
-  countForBaselineRecording: 25
-  duration: 120
-  currentDuration: 0
-  baselineAverage: 10
-  slope: NaN
 --- !u!114 &1600266877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,6 +1053,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1611289547
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1794187986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,13 +1229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d050c1e3560ee7439005cc46ea50421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logger: {fileID: 1233132789}
-  input: {fileID: 1888915596}
-  countForBaselineRecording: 25
-  duration: 120
-  currentDuration: 0
-  baselineAverage: 10
-  slope: NaN
 --- !u!4 &1888915595
 Transform:
   m_ObjectHideFlags: 0
@@ -1588,7 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashColor: green
-  mytask: {fileID: 9000841247625586147}
+  task: {fileID: 0}
 --- !u!4 &1331775341025366877
 Transform:
   m_ObjectHideFlags: 0
@@ -2141,9 +2120,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 095c5adc79d8cb64baa45ee8d86638c4, type: 2}
   nBackNumber: 1
   showFeedback: 1
-  recordBaseline: {fileID: 1888915594}
-  isRecodingBaseline: 0
-  adaptiveEDA: {fileID: 0}
   logger: {fileID: 1233132789}
 --- !u!82 &9000841247625586148
 AudioSource:

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Mytask : MonoBehaviour
+public class NBackTask : MonoBehaviour
 {
     enum STATES { start, end, wait, move, baseline };
     public BlockDesigner blockDesigner;
@@ -36,8 +36,6 @@ public class Mytask : MonoBehaviour
     //private double lastTimeStamp = 0;
 
     public bool showFeedback = true;
-
-    public bool isRecodingBaseline = false;
 
     public DataLogger logger;
 
@@ -109,7 +107,6 @@ public class Mytask : MonoBehaviour
             }
 
             if (state == STATES.wait) {
-                isRecodingBaseline = false;
                 feedbackCorrect.SetActive(false);
                 feedbackWrong.SetActive(false);
                 counterBalls = 0;
@@ -120,18 +117,6 @@ public class Mytask : MonoBehaviour
             }
 
             
-        }
-        else if(Input.GetKeyDown("b") && STATES.start == state) //Start the baseline task
-        {
-            isRecodingBaseline = true;
-            feedbackCorrect.SetActive(false);
-            feedbackWrong.SetActive(false);
-            counterBalls = 0;
-            feedbackStatsCounter = 0;
-            state = STATES.baseline;
-            colorList.Clear();
-            generateSpheres();
-            //logger.writeState(timestamp, "baselineStart", recordBaseline.countForBaselineRecording, 1);
         }
         else if (Input.GetKeyDown("left") && STATES.wait == state)
         {
@@ -150,17 +135,7 @@ public class Mytask : MonoBehaviour
             counterBalls++;
         }
 
-        if (isRecodingBaseline == true) {
-            //logger.writeState(timestamp, "baselineEnd", recordBaseline.countForBaselineRecording, recordBaseline.getBaselineSlope());
-            isRecodingBaseline = false;
-            state = STATES.start;
-            if (sphere != null)
-            {
-                Destroy(sphere);
-            }
-        }
-
-        if (blockDesigner.isDone && STATES.start != state && isRecodingBaseline == false)
+        if (blockDesigner.isDone && STATES.start != state)
         {
             logger.writeState(timestamp, "end", -1, -1);
             state = STATES.start;
