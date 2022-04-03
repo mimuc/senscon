@@ -155,14 +155,6 @@ CGINCLUDE
  
 		half4 edgeBlendFactors = half4(1.0, 0.0, 0.0, 0.0);
 		
-		#ifdef WATER_EDGEBLEND_ON
-			half depth = SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPos));
-			depth = LinearEyeDepth(depth);
-			edgeBlendFactors = saturate(_InvFadeParemeter * (depth-i.screenPos.w));
-			edgeBlendFactors.y = 1.0-edgeBlendFactors.y;
-		#endif
-		
- 
         half4 baseColor = calculateBaseColor(i);
        
  

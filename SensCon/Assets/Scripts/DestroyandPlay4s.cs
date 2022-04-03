@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyandPlay4s : MonoBehaviour
 {
-    public Mytask task;
+    public NBackTask task;
 
     bool isTouched = false;
     public float timeRemaining = 4;

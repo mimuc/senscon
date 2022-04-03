@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollisionDetection : MonoBehaviour
 {
     public string trashColor = "";
-    public Mytask mytask;
+    public NBackTask task;
    
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class CollisionDetection : MonoBehaviour
         if (col.gameObject.name == "NbackBall" && col.gameObject.GetComponent<CollisionDone>().isCollision == false)
         {
             col.gameObject.GetComponent<CollisionDone>().isCollision = true;
-            mytask.collision(timestamp, trashColor);
+            task.collision(timestamp, trashColor);
             Destroy(col.gameObject);
         }
     }
