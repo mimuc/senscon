@@ -70,11 +70,11 @@ class ReadThread(Thread):
             udp_data = data.decode("utf-8")
             splitted = udp_data.split(';')
             splitted = list(map(int, splitted))
-            # print(splitted)
+            print(splitted)
         except:
             splitted = list(data)
             splitted = [int(((1024+2*splitted[0])*10000)/(512-splitted[0]))]
-            # print(splitted)
+            print(splitted)
 
         self.outlet.push_sample(splitted)
 
