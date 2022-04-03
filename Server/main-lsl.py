@@ -84,10 +84,10 @@ class ReadThread(Thread):
         self.outlet.push_sample(sample)
 
 
-connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 4, 192, "PPG-0")
+connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 4, 250, "PPG-0")
 readThread_ppg = ReadThread(connectionInfo_ppg, True)
 readThread_ppg.start()
 
-connectionInfo_eda = ConnectionInfo("EDA", UDP_IP, UDP_PORT_EDA, 1, 192, "EDA-0")
+connectionInfo_eda = ConnectionInfo("EDA", UDP_IP, UDP_PORT_EDA, 1, 250, "EDA-0")
 readThread_eda = ReadThread(connectionInfo_eda, True)
 readThread_eda.start()

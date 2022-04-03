@@ -80,7 +80,7 @@ public class NBackTask : MonoBehaviour
         feedbackCorrect.SetActive(false);
         feedbackWrong.SetActive(false);
         feedbackStats.SetActive(false);
-
+        loggerSimple = new DataLoggerSimple();
     }
 
 
