@@ -139,17 +139,6 @@ namespace Valve.VR.Extras
                 argsClick.distance = hit.distance;
                 argsClick.flags = 0;
                 argsClick.target = hit.transform;
-                argsClick.clickState = ClickState.Up;
-                OnPointerClick(argsClick);
-            }
-            else if (bHit && interactWithUI.GetStateDown(pose.inputSource))
-            {
-                PointerEventArgs argsClick = new PointerEventArgs();
-                argsClick.fromInputSource = pose.inputSource;
-                argsClick.distance = hit.distance;
-                argsClick.flags = 0;
-                argsClick.target = hit.transform;
-                argsClick.clickState = ClickState.Down;
                 OnPointerClick(argsClick);
             }
 
@@ -173,14 +162,6 @@ namespace Valve.VR.Extras
         public uint flags;
         public float distance;
         public Transform target;
-        public ClickState clickState;
-    }
-
-
-    public enum ClickState
-    {
-        Down,
-        Up,
     }
 
     public delegate void PointerEventHandler(object sender, PointerEventArgs e);

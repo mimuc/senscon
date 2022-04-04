@@ -78,7 +78,7 @@ public class DataLoggerSensor : MonoBehaviour
             swPpg.WriteLine("Time,TimeLsl,Status,Oxygen,Confidence,Heartrate");
             swPpg.Flush();
         }
-
+ 
         if (swM_Ppg == null)
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-MPPG.csv";
