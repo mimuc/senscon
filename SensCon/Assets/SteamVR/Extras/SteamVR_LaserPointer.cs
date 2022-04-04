@@ -180,7 +180,7 @@ namespace Valve.VR.Extras
     public enum ClickState
     {
         Down,
-        Up
+        Up,
     }
 
     public delegate void PointerEventHandler(object sender, PointerEventArgs e);

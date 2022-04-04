@@ -30,11 +30,11 @@ public class DataLoggerSimple : MonoBehaviour
 
         if (File.Exists(filepath))
         {
-            Debug.LogError("Participant log files already exists ID " + participantId);
+            //Debug.LogError("Participant log files already exists ID " + participantId);
 #if UNITY_EDITOR
             //UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+            //Application.Quit();
 #endif
 
         }

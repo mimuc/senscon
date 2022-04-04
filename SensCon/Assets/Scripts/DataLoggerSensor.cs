@@ -64,10 +64,9 @@ public class DataLoggerSensor : MonoBehaviour
 
         if (swM_Eda == null)
         {
-            // TODO: We log EDA and PPG in the same file right now since it is coming from a device with a similar device ID. Is it possible to log both in separate files?
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-MEDA.csv";
             swM_Eda = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swM_Eda.WriteLine("Time,TimeLsl,EDA,PPG");
+            swM_Eda.WriteLine("Time,TimeLsl,EDA,Heartrate");
             swM_Eda.Flush();
         }
 
@@ -78,12 +77,12 @@ public class DataLoggerSensor : MonoBehaviour
             swPpg.WriteLine("Time,TimeLsl,Status,Oxygen,Confidence,Heartrate");
             swPpg.Flush();
         }
- 
+
         if (swM_Ppg == null)
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-MPPG.csv";
             swM_Ppg = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swM_Ppg.WriteLine("Time,TimeLsl,PPG");
+            swM_Ppg.WriteLine("Time,TimeLsl,Heartrate");
             swM_Ppg.Flush();
         }
 
