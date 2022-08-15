@@ -42,8 +42,8 @@ void setup() {
 
 void loop() {
   Signal = analogRead(PULSE_SENSOR_PIN); // Read the sensor value
-  // Serial.println(Signal);                // Send the signal value to serial plotter
-  String sendString = String(millis()) + ";" + String(Signal);
+  Serial.println(Signal);                // Send the signal value to serial plotter
+  String sendString = String(millis()) + ";" + "PPG2" + ";" +String(Signal);
   UDP.beginPacket(SendIP, UDP_PORT);
   UDP.print(sendString);
   UDP.endPacket();

@@ -65,16 +65,19 @@ class ReadThread(Thread):
     def receiveData(self):
         data, addr = self.client.recvfrom(1024)
         splitted = []
-        # udp_data = data.decode("utf-8")
         try:
-            udp_data = data.decode("utf-8")
-            splitted = udp_data.split(';')
-            splitted = list(map(int, splitted))
-            print(splitted)
+            splitted = data.decode("utf-8").split(';')
+            
+            if splitted[1] == "PPG2":
+                splitted = [int(splitted[-1])]
+            else:
+                splitted = list(map(int, splitted))
+                
         except:
             splitted = list(data)
             splitted = [int(((1024+2*splitted[0])*10000)/(512-splitted[0]))]
-            print(splitted)
+        
+        print(splitted)
 
         self.outlet.push_sample(splitted)
 
@@ -84,10 +87,10 @@ class ReadThread(Thread):
         self.outlet.push_sample(sample)
 
 
-connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 4, 250, "PPG-0")
+connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 1, 100, "PPG-0")
 readThread_ppg = ReadThread(connectionInfo_ppg, True)
 readThread_ppg.start()
 
-connectionInfo_eda = ConnectionInfo("EDA", UDP_IP, UDP_PORT_EDA, 1, 250, "EDA-0")
-readThread_eda = ReadThread(connectionInfo_eda, True)
-readThread_eda.start()
+#connectionInfo_eda = ConnectionInfo("EDA", UDP_IP, UDP_PORT_EDA, 1, 250, "EDA-0")
+#readThread_eda = ReadThread(connectionInfo_eda, True)
+#readThread_eda.start()
