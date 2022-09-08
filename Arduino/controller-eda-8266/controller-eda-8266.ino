@@ -46,11 +46,12 @@ void setup() {
 void loop() {
   long sum=0;
   sensorValue=analogRead(GSR);
-  Serial.println(sensorValue);
+  String sensorValueString = String(sensorValue);
+  Serial.println(sensorValueString);
 
   // Send return packet
   UDP.beginPacket(SendIP, UDP_PORT);
-  UDP.write(sensorValue);
+  UDP.print(sensorValueString);
   UDP.endPacket();
 
 }

@@ -154,13 +154,15 @@ public class DataLoggerSensor : MonoBehaviour
         }
         else if (name.ToLower() == "ppg")
         {
-            if (s.values.Length == 4)
+            if (s.values.Length == 1)
             {
-                stringbuilderPpg.AppendFormat("{0},{1},{2},{3},{4},{5}{6}", s.time, s.timeLsl, s.values[0], s.values[1], s.values[2], s.values[3], Environment.NewLine);
+                // stringbuilderPpg.AppendFormat("{0},{1},{2},{3},{4},{5}{6}", s.time, s.timeLsl, s.values[0], s.values[1], s.values[2], s.values[3], Environment.NewLine);
+                stringbuilderPpg.AppendFormat("{0},{1},{2}{3}", s.time, s.timeLsl, s.values[0], Environment.NewLine);
             }
             else
             {
-                throw new NotImplementedException("Your electrode count is not 4 please ajust the script");
+                // throw new NotImplementedException("Your electrode count is not 4 please ajust the script");
+                throw new NotImplementedException("Your electrode count is not 1 please ajust the script");
             }
             countedPpg++;
             if (countedPpg % 1000 == 0)
