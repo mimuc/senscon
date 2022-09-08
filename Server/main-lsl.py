@@ -65,24 +65,24 @@ class ReadThread(Thread):
     def receiveData(self):
         data, addr = self.client.recvfrom(1024)
         splitted = []
-        try:
-            # PPG
-            # [0]: PPG2 Identifier
-            # [1]: Time since start in milliseconds
-            # [2]: PPG Value
-            splitted = data.decode("utf-8").split(';')
-            if splitted[0] == "PPG2":
-                splitted = [int(splitted[-1])]
-                print("PPG: " + str(splitted[0]))
-            else:
-                # EDA
-                splitted = list(map(int, splitted))
-                print("EDA: " + str(splitted[0]))
+        # try:
+        # PPG
+        # [0]: PPG2 Identifier
+        # [1]: Time since start in milliseconds
+        # [2]: PPG Value
+        splitted = data.decode("utf-8").split(';')
+        if splitted[0] == "PPG2":
+            splitted = [int(splitted[-1])]
+            print("PPG: " + str(splitted[0]))
+        else:
+            # EDA
+            splitted = list(map(int, splitted))
+            print("EDA: " + str(splitted[0]))
                 
-        except:
-            # TODO: What is this line doing? Is this used? Is this an old conversion?
-            splitted = list(data)
-            splitted = [int(((1024+2*splitted[0])*10000)/(512-splitted[0]))]
+        # except:
+        #     # TODO: What is this line doing? Is this used? Is this an old conversion?
+        #     splitted = list(data)
+        #     splitted = [int(((1024+2*splitted[0])*10000)/(512-splitted[0]))]
 
         self.outlet.push_sample(splitted)
 
