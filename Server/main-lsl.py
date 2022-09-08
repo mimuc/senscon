@@ -33,16 +33,16 @@ class ReadThread(Thread):
         self.client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
 
-        # self.client_eda = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        # self.client_eda.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+        self.client_eda = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.client_eda.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
 
         if (self.connectionInfo.timeout != None):
             self.client.settimeout(self.connectionInfo.timeout)
         self.client.bind(("", self.connectionInfo.udpPort))
 
-        # if (self.connectionInfo.timeout != None):
-        #     self.client_eda.settimeout(self.connectionInfo.timeout)
-        # self.client_eda.bind(("", UDP_PORT_EDA))
+        if (self.connectionInfo.timeout != None):
+            self.client_eda.settimeout(self.connectionInfo.timeout)
+        self.client_eda.bind(("", UDP_PORT_EDA))
 
         self.ringBuffer = [deque(int(self.connectionInfo.estimatedSamplingRate*10) * [0]) for i in range(0, self.connectionInfo.numberOfChannels)]
 
@@ -66,18 +66,23 @@ class ReadThread(Thread):
         data, addr = self.client.recvfrom(1024)
         splitted = []
         try:
+            # PPG
+            # [0]: PPG2 Identifier
+            # [1]: Time since start in milliseconds
+            # [2]: PPG Value
             splitted = data.decode("utf-8").split(';')
-            
-            if splitted[1] == "PPG2":
+            if splitted[0] == "PPG2":
                 splitted = [int(splitted[-1])]
+                print("PPG: " + str(splitted[0]))
             else:
+                # EDA
                 splitted = list(map(int, splitted))
+                print("EDA: " + str(splitted[0]))
                 
         except:
+            # TODO: What is this line doing? Is this used? Is this an old conversion?
             splitted = list(data)
             splitted = [int(((1024+2*splitted[0])*10000)/(512-splitted[0]))]
-        
-        print(splitted)
 
         self.outlet.push_sample(splitted)
 
@@ -87,10 +92,12 @@ class ReadThread(Thread):
         self.outlet.push_sample(sample)
 
 
+# # TODO: Check sample rate!
 connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 1, 100, "PPG-0")
 readThread_ppg = ReadThread(connectionInfo_ppg, True)
 readThread_ppg.start()
 
-#connectionInfo_eda = ConnectionInfo("EDA", UDP_IP, UDP_PORT_EDA, 1, 250, "EDA-0")
-#readThread_eda = ReadThread(connectionInfo_eda, True)
-#readThread_eda.start()
+# # TODO: Check sample rate!
+connectionInfo_eda = ConnectionInfo("EDA", UDP_IP, UDP_PORT_EDA, 1, 250, "EDA-0")
+readThread_eda = ReadThread(connectionInfo_eda, True)
+readThread_eda.start()
