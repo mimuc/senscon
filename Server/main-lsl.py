@@ -3,9 +3,9 @@ from pylsl import StreamInfo, StreamOutlet
 from collections import deque
 from threading import Thread
 
-UDP_IP = "10.163.181.255"
-UDP_PORT_PPG = 5005
-UDP_PORT_EDA = 5006
+UDP_IP = "192.168.0.255"
+UDP_PORT_PPG = 5550
+UDP_PORT_EDA = 5551
 
 body_status = 0
 body_oxygen = 0
@@ -93,7 +93,7 @@ class ReadThread(Thread):
 
 
 # # TODO: Check sample rate!
-connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 1, 100, "PPG-0")
+connectionInfo_ppg = ConnectionInfo("PPG", UDP_IP, UDP_PORT_PPG, 1, 250, "PPG-0")
 readThread_ppg = ReadThread(connectionInfo_ppg, True)
 readThread_ppg.start()
 

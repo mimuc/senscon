@@ -2,12 +2,12 @@
 #include <WiFiUdp.h>
 
 // Set WiFi credentials
-#define WIFI_SSID "HCUM"
+#define WIFI_SSID "SensCon"
 #define WIFI_PASS "wearedoingresearch."
 
 const int GSR =  A0; //D8
-unsigned int UDP_PORT = 5006;
-IPAddress SendIP(10,163,181,255);
+unsigned int UDP_PORT = 5551;
+IPAddress SendIP(192,168,0,255);
 WiFiUDP UDP;
 
 int sensorValue=0;

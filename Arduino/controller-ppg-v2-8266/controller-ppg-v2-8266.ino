@@ -1,15 +1,19 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-#define WIFI_SSID "HCUM"
+#define WIFI_SSID "SensCon"
 #define WIFI_PASS "wearedoingresearch."
-unsigned int UDP_PORT = 5005;
-IPAddress SendIP(10,163,181,255);
+unsigned int UDP_PORT = 5550;
+IPAddress SendIP(192,168,0,255);
 WiFiUDP UDP;
 
 int PULSE_SENSOR_PIN = A0; // D5
 
 int Signal;                // Store incoming ADC data. Value can range from 0-1024
+
+long myTime;
+
+float frequencyHz = 250;
 
 void setup() {
   Serial.begin(9600);
@@ -41,10 +45,18 @@ void setup() {
 }
 
 void loop() {
+  myTime = millis();
   Signal = analogRead(PULSE_SENSOR_PIN); // Read the sensor value
-  Serial.println(Signal);                // Send the signal value to serial plotter
-  String sendString = "PPG2;" + String(millis()) + ";" + String(Signal);
+  //Serial.println(Signal);                // Send the signal value to serial plotter
+  String sendString = "PPG2;" + String(myTime) + ";" + String(Signal);
+  //Serial.println(sendString);
   UDP.beginPacket(SendIP, UDP_PORT);
   UDP.print(sendString);
   UDP.endPacket();
+  float t = 1000.0/frequencyHz - (millis() - myTime);
+  //Serial.println(t);
+  if (t > 0.0){
+    Serial.println("delay " + String(t));
+    delay(t);
+  }
 }

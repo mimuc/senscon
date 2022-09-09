@@ -74,7 +74,7 @@ public class DataLoggerSensor : MonoBehaviour
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-PPG.csv";
             swPpg = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swPpg.WriteLine("Time,TimeLsl,Status,Oxygen,Confidence,Heartrate");
+            swPpg.WriteLine("Time,TimeLsl,Value");
             swPpg.Flush();
         }
 
@@ -154,8 +154,10 @@ public class DataLoggerSensor : MonoBehaviour
         }
         else if (name.ToLower() == "ppg")
         {
+            Debug.Log(s.values[0]);
             if (s.values.Length == 1)
             {
+
                 // stringbuilderPpg.AppendFormat("{0},{1},{2},{3},{4},{5}{6}", s.time, s.timeLsl, s.values[0], s.values[1], s.values[2], s.values[3], Environment.NewLine);
                 stringbuilderPpg.AppendFormat("{0},{1},{2}{3}", s.time, s.timeLsl, s.values[0], Environment.NewLine);
             }

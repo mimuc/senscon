@@ -2,16 +2,21 @@ import socket
 from ssl import SSLSyscallError
 import sys
 
+print("Test1")
 # client_ppg = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 # client_ppg.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 # client_ppg.bind(("", 5005))
 
-client_eda = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
-client_eda.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-client_eda.bind(("", 5006))
+#client_eda = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+#client_eda.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+client_eda.bind(("", 5550))
 
 # [Status, Oxygen, Confidence, Heart Rate]
 
+print("Test")
 while True:
     # data_ppg, addr = client_ppg.recvfrom(1024)
     # udp_data_ppg = data_ppg.decode("utf-8")
