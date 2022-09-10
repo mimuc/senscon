@@ -9,7 +9,7 @@ WiFiUDP UDP;
 
 int PULSE_SENSOR_PIN = A0; // D5
 
-int Signal;                // Store incoming ADC data. Value can range from 0-1024
+int sensorValue;                // Store incoming ADC data. Value can range from 0-1024
 
 long myTime;
 
@@ -46,9 +46,9 @@ void setup() {
 
 void loop() {
   myTime = millis();
-  Signal = analogRead(PULSE_SENSOR_PIN); // Read the sensor value
+  sensorValue = analogRead(PULSE_SENSOR_PIN); // Read the sensor value
   //Serial.println(Signal);                // Send the signal value to serial plotter
-  String sendString = "PPG2;" + String(myTime) + ";" + String(Signal);
+  String sendString = "PPG2;" + String(myTime) + ";" + String(sensorValue);
   //Serial.println(sendString);
   UDP.beginPacket(SendIP, UDP_PORT);
   UDP.print(sendString);

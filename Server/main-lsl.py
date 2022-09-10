@@ -73,12 +73,12 @@ class ReadThread(Thread):
         splitted = data.decode("utf-8").split(';')
         if splitted[0] == "PPG2":
             splitted = [int(splitted[-1])]
-            # print("PPG: " + str(splitted[0]))
+        elif splitted[0] == "EDA":
+            splitted = [int(splitted[-1])]
         else:
-            # EDA
-            splitted = list(map(int, splitted))
-            # print("EDA: " + str(splitted[0]))
-                
+            print("Old Encoding")
+        
+        print(splitted)
         # except:
         #     # TODO: What is this line doing? Is this used? Is this an old conversion?
         #     splitted = list(data)

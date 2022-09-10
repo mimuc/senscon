@@ -11,7 +11,9 @@ IPAddress SendIP(192,168,0,255);
 WiFiUDP UDP;
 
 int sensorValue=0;
-int gsr_average=0;
+
+long myTime;
+float frequencyHz = 250;
 
 void setup() {
   // Setup serial portg
@@ -44,14 +46,19 @@ void setup() {
 }
    
 void loop() {
-  long sum=0;
-  sensorValue=analogRead(GSR);
-  String sensorValueString = String(sensorValue);
-  Serial.println(sensorValueString);
-
+  myTime = millis();
+  sensorValue=analogRead(GSR);;
+  Serial.println(sensorValue);
+  String sendString = "EDA;" + String(myTime) + ";" + String(sensorValue);
   // Send return packet
   UDP.beginPacket(SendIP, UDP_PORT);
-  UDP.print(sensorValueString);
+  UDP.print(sendString);
   UDP.endPacket();
 
+  float t = 1000.0/frequencyHz - (millis() - myTime);
+  //Serial.println(t);
+  if (t > 0.0){
+    Serial.println("delay " + String(t));
+    delay(t);
+  }
 }
