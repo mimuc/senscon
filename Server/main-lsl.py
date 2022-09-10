@@ -78,7 +78,6 @@ class ReadThread(Thread):
         else:
             print("Old Encoding")
         
-        print(splitted)
         # except:
         #     # TODO: What is this line doing? Is this used? Is this an old conversion?
         #     splitted = list(data)
