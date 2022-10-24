@@ -65,7 +65,7 @@ public class DataLogger : MonoBehaviour
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-sphere.csv";
             swSphere = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swSphere.WriteLine("Time,Type,Feedback");
+            //swSphere.WriteLine("Time,Type,Feedback");
             swSphere.Flush();
         }
 
@@ -73,7 +73,7 @@ public class DataLogger : MonoBehaviour
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-feedback.csv";
             swFeedback = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swFeedback.WriteLine("Time,NbackColor,CurrentColors,Trash,IsCorrect");
+            //swFeedback.WriteLine("Time,NbackColor,CurrentColors,Trash,IsCorrect");
             swFeedback.Flush();
         }
 
@@ -81,7 +81,7 @@ public class DataLogger : MonoBehaviour
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-state.csv";
             swState = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swState.WriteLine("Time,State,BlockNumber,AdaptationStatus");
+            //swState.WriteLine("Time,State,BlockNumber,AdaptationStatus");
             swState.Flush();
         }
 
@@ -89,7 +89,7 @@ public class DataLogger : MonoBehaviour
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-flow.csv";
             swFlow = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swFlow.WriteLine("Time,Name,HasTicket,Shirtcolor,Hair");
+            //swFlow.WriteLine("Time,Name,HasTicket,Shirtcolor,Hair");
             swFlow.Flush();
         }
 
@@ -107,7 +107,7 @@ public class DataLogger : MonoBehaviour
         {
             filepath = loggerSimple.rootFolder + "ID" + loggerSimple.participantId + "-adaptation.csv";
             swAdaption = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
-            swAdaption.WriteLine("Time,Direction,CurrentCount,SlopeBaseline,SlopeEDA");
+            //swAdaption.WriteLine("Time,Direction,CurrentCount,SlopeBaseline,SlopeEDA");
             swAdaption.Flush();
         }
         

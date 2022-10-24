@@ -27,7 +27,6 @@ public class LSLInput : MonoBehaviour
     private double[] rawBufferedTimes;
 
     public LimitedSizeList<SignalSample1D> samples;
-    public int samplesTotal;
     public int samplesBuffer = 30;
     
     public string InfoHostName; //Hostname of the providing machine
@@ -88,7 +87,6 @@ public class LSLInput : MonoBehaviour
                 if (samples == null)
                     samples = new LimitedSizeList<SignalSample1D>(samplesBuffer);
                 samples.Add(newSample);
-                samplesTotal = samples.Count;
             }
         }
     }

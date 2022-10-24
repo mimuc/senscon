@@ -95,6 +95,7 @@ public class DataLoggerSensor : MonoBehaviour
             swEeg.Flush();
         }
     }
+    
     internal void write(string name, SignalSample1D s)
     {
         if (swEda == null || swEeg == null || swPpg == null || swM_Eda == null || swM_Ppg == null)
@@ -154,7 +155,6 @@ public class DataLoggerSensor : MonoBehaviour
         }
         else if (name.ToLower() == "ppg")
         {
-            Debug.Log(s.values[0]);
             if (s.values.Length == 1)
             {
 
