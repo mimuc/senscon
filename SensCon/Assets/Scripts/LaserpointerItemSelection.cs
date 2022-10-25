@@ -8,7 +8,8 @@ using Valve.VR.InteractionSystem;
 public class LaserpointerItemSelection : MonoBehaviour
 {
 
-    public DataLogger logger;
+    //public DataLogger logger;
+    public DataLoggerSimple loggerSimple;
     public SteamVR_LaserPointer laserPointer;
     bool[] triggable = new bool[2];
     public UnityEvent onTriggerUp;
@@ -30,12 +31,12 @@ public class LaserpointerItemSelection : MonoBehaviour
             if (e.target.tag == "visitor")
             {
                 //Debug.Log("TODO: Check Ticket DOWN");
-                logger.writeVisitorClick(timestamp, e.target.name, e.target.GetComponent<TicketSpawner>().hasticket, "down");
+                //loggerSimple.writeVisitorClick(timestamp, e.target.name, e.target.GetComponent<TicketSpawner>().hasticket, "down");
             }
             if (e.target.tag == "nbacktask")
             {
                 //Debug.Log("TODO: Check nbacktask DOWN");
-                logger.writeSphereClick(timestamp, "down");
+                loggerSimple.writeSphereClick(timestamp, "down");
 
                 Rigidbody r = e.target.gameObject.GetComponent<Rigidbody>();
                 if (r != null) { 
@@ -54,13 +55,13 @@ public class LaserpointerItemSelection : MonoBehaviour
             if (e.target.tag == "visitor")
             {
                 //Debug.Log("TODO: Check Ticket UP");
-                logger.writeVisitorClick(timestamp, e.target.name, e.target.GetComponent<TicketSpawner>().hasticket, "up");
+                //loggerSimple.writeVisitorClick(timestamp, e.target.name, e.target.GetComponent<TicketSpawner>().hasticket, "up");
                 e.target.GetComponent<ShirtController>().setSelected();
             }
             if (e.target.tag == "nbacktask")
             {
                 //Debug.Log("TODO: Check nback UP");
-                logger.writeSphereClick(timestamp, "up");
+                loggerSimple.writeSphereClick(timestamp, "up");
                 if (activeObject != null)
                 {
                     Rigidbody r = activeObject.GetComponent<Rigidbody>();

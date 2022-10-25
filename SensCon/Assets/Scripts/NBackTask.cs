@@ -40,13 +40,13 @@ public class NBackTask : MonoBehaviour
 
     public bool showFeedback = true;
 
-    public DataLogger logger;
+    //public DataLogger logger;
 
     // Start is called before the first frame update
     void Start() //initializationstep 
     {
 
-        if (logger == null)
+  /*      if (logger == null)
         {
             Debug.LogError("Logger not set");
 #if UNITY_EDITOR
@@ -54,7 +54,7 @@ public class NBackTask : MonoBehaviour
 #else
                 Application.Quit();
 #endif
-        }
+        } */
 
         if (pilar == null)
         {
@@ -101,7 +101,7 @@ public class NBackTask : MonoBehaviour
             else if (nextBlock == -2)
             {
                 state = STATES.end;
-                logger.writeState(timestamp, "end", nextBlock, -1);
+                //loggerSimple.writeState(timestamp, "end", nextBlock, -1);
                 loggerSimple.writeState(timestamp, "end", "");
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
@@ -143,7 +143,7 @@ public class NBackTask : MonoBehaviour
 
         if (blockDesigner.isDone && STATES.start != state)
         {
-            logger.writeState(timestamp, "end", -1, -1);
+            //loggerSimple.writeState(timestamp, "end", -1, -1);
             loggerSimple.writeState(timestamp, "end", "");
             state = STATES.start;
             if (sphere != null)
@@ -264,7 +264,7 @@ public class NBackTask : MonoBehaviour
                 }
             }
 
-            logger.writeScore(timestamp, nBackColor, lastColor, pickedTrash, isLastCorrect);
+            loggerSimple.writeScore(timestamp, nBackColor, lastColor, pickedTrash, isLastCorrect, nBackNumber);
             disableFeedback = StartCoroutine(myWaitCoroutine());
         }
     }

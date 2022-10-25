@@ -15,6 +15,8 @@ public class DataLoggerSimple : MonoBehaviour
 
 
     StreamWriter swState;
+    StreamWriter swSphere;
+    StreamWriter swFeedback;
 
     // Start is called before the first frame update
     public void Start()
@@ -28,18 +30,13 @@ public class DataLoggerSimple : MonoBehaviour
         string filepath;
         filepath = rootFolder + "ID" + participantId + "-simple-state.csv";
 
-        if (File.Exists(filepath))
-        {
-            //Debug.LogError("Participant log files already exists ID " + participantId);
-#if UNITY_EDITOR
-            //UnityEditor.EditorApplication.isPlaying = false;
-#else
-            //Application.Quit();
-#endif
-
+        while (File.Exists(filepath)) {
+            participantId++;
+            filepath = rootFolder + "ID" + participantId + "-simple-state.csv";
         }
 
         init();
+
 
     }
 
@@ -47,7 +44,8 @@ public class DataLoggerSimple : MonoBehaviour
     {
         // this should happen only once during the runtime
         Debug.Log("Init Files");
-        string filepath;
+        string filepath = rootFolder + "ID" + participantId + "-simple-state.csv";
+
         if (swState == null)
         {
             filepath = rootFolder + "ID" + participantId + "-simple-state.csv";
@@ -55,6 +53,22 @@ public class DataLoggerSimple : MonoBehaviour
             swState.WriteLine("Time,Condition,PId,Status,Comment");
             swState.Flush();
         }
+
+        if (swFeedback == null)
+        {
+            filepath = rootFolder + "ID" + participantId + "-feedback.csv";
+            swFeedback = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
+            swFeedback.WriteLine("Time,NbackColor,CurrentColors,Trash,IsCorrect,nBackNumber");
+            swFeedback.Flush();
+        }
+        
+        if (swSphere == null)
+        {
+            filepath = rootFolder + "ID" + participantId + "-sphere.csv";
+            swSphere = (!File.Exists(filepath)) ? File.CreateText(filepath) : File.AppendText(filepath);
+            swSphere.WriteLine("Time,Type");
+            swSphere.Flush();
+        }  
     }
 
 
@@ -85,6 +99,26 @@ public class DataLoggerSimple : MonoBehaviour
         }
         swState.WriteLine(timestamp + "," + condition + "," + participantId + "," + status + "," + comment);
         swState.Flush();
+    }
+
+    public void writeScore(double timestamp, int nbackColor, int currentColor, string trash, bool isCorrect , int nBackNumber)
+    {
+        if (swFeedback == null)
+        {
+            init();
+        }
+        swFeedback.WriteLine(timestamp + "," + nbackColor + "," + currentColor + "," + trash + "," + isCorrect + "," + nBackNumber);
+        swFeedback.Flush();
+    }
+
+        public void writeSphereClick(double timestamp, string type)
+    {
+        if (swSphere == null)
+        {
+            init();
+        }
+        swSphere.WriteLine(timestamp + "," + type);
+        swSphere.Flush();
     }
 
 
