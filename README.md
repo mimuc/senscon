@@ -1,1 +1,1 @@
-# Physiological Sensing Controller
+# SensCon: Embedding Physiological Sensing into Virtual Reality Controllers
