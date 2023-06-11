@@ -8,6 +8,10 @@ Virtual reality experiences increasingly use physiological data for virtual envi
 
 DOI: https://doi.org/10.1145/3491102.3517593
 
+## Full Paper
+
+The paper is available in [chiossi2023senscon.pdf](./chiossi2023senscon.pdf).
+
 # Application 
 
 
