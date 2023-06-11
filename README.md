@@ -20,7 +20,8 @@ The paper is available in [chiossi2023senscon.pdf](./chiossi2023senscon.pdf).
 
 # Data Set
 
-The linked data set contains all data collected in the lab study. Please see the URL for further reference. 
+The linked data set contains physiological data preprocessed in the full paper for Study 2. 
+They are fully available also in the [Open Science Framework](https://osf.org/share-your-work/public-domain/cc0/)
 
 ## Contribute
 
