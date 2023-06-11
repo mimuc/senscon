@@ -52,12 +52,12 @@ series = {CHI ’22}
 
 
 ```
-@misc{knierim:2022:application,
-  author = {Huang, Ann and Knierim, Pascal and Chiossi, Francesco and Chuang, Lewis and Welsch, Robin},
-  title = {Proxemics for Human-Agent Interaction in Augmented Reality},
-  year = {2022},
+@misc{chiossi2023sensconapp,
+  author = {Chiossi, Francesco and Kosch, Thomas and Menghini, Luca, And Villa, Steeven and Mayer, Sven},
+  title = {{SensCon: Embedding Physiological Sensing into Virtual Reality Controllers}},
+  year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/pknierim/Proxemics-for-Human-Agent-Interaction-in-Augmented-Reality}}
+  howpublished = {\url{https://github.com/mimuc/Senscon}}
 }
 ```
