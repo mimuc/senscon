@@ -34,9 +34,9 @@ Below are the BibTex entries to cite the paper and data set.
 
 ```
 @inproceedings{10.1145/3491102.3517593,
-author = {Huang, Ann and Knierim, Pascal and Chiossi, Francesco and Chuang, Lewis and Welsch, Robin},
-title = {Proxemics for Human-Agent Interaction in Augmented Reality},
-year = {2022},
+author = {Chiossi, Francesco and Kosch, Thomas and Menghini, Luca, And Villa, Steeven and Mayer, Sven},
+title = {{SensCon: Embedding Physiological Sensing into Virtual Reality Controllers}},
+year = {2023},
 publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 url = {https://doi.org/10.1145/3491102.3517593},
