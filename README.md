@@ -16,6 +16,14 @@ DOI: https://doi.org/10.1145/3491102.3517593
 
 The linked data set contains all data collected in the lab study. Please see the URL for further reference. 
 
+## Contribute
+
+The easiest way to contribute is to provide feedback! We would love to hear what you think. Please write to [francescochiossi93@gmail.com](mailto:francescochiossi93@gmail.com) and [info@sven-mayer.com](mailto:info@sven-mayer.com) for closer communication.
+
+## Licenses and Citation
+
+Copyright &copy; 2023. [LMU Munich Media Informatics Group](https://www.medien.ifi.lmu.de). All rights reserved.
+
 ## Citing the Paper and Application
 
 Below are the BibTex entries to cite the paper and data set.
