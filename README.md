@@ -17,12 +17,6 @@ The paper is available in [chiossi2023senscon.pdf](./chiossi2023senscon.pdf).
 # Application 
 
 
-
-# Data Set
-
-The linked data set contains physiological data preprocessed in the full paper for Study 2. 
-They are fully available also in the [Open Science Framework](https://osf.org/share-your-work/public-domain/cc0/)
-
 ## Contribute
 
 The easiest way to contribute is to provide feedback! We would love to hear what you think. Please write to [francescochiossi93@gmail.com](mailto:francescochiossi93@gmail.com) and [info@sven-mayer.com](mailto:info@sven-mayer.com) for closer communication.
@@ -31,7 +25,7 @@ The easiest way to contribute is to provide feedback! We would love to hear what
 
 Copyright &copy; 2023. [LMU Munich Media Informatics Group](https://www.medien.ifi.lmu.de). All rights reserved.
 
-The [dataset](./dataset) itself, available in [Creative Commons Public Domain Dedication (CC-0)](https://creativecommons.org/share-your-work/public-domain/cc0/), represented the results from consented anonymous participants and was collected by  Francesco Chiossi. The contained "source code" (i.e., Python and R scripts and Jupyter Notebooks) of this work is made available under the terms of [GNU GPLv3](./LICENSE).
+The [dataset](./dataset) itself, available in [Creative Commons Public Domain Dedication (CC-0)](https://creativecommons.org/share-your-work/public-domain/cc0/), represented the results from consented anonymous participants and was collected by Francesco Chiossi. The contained "source code" (i.e., Python and R scripts and Jupyter Notebooks) of this work is made available under the terms of [GNU GPLv3](./LICENSE). They are fully available also in the [Open Science Framework](https://osf.org/share-your-work/public-domain/cc0/)
 
 ## Citing the Paper and Application
 
