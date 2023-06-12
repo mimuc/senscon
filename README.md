@@ -21,7 +21,12 @@ The paper is available in [chiossi2023senscon.pdf](./chiossi2023senscon.pdf).
 - The [./Schematics/](./Schematics) provides the SensCon schematics for both EDA and PPG sensors. 
 
 ## Materials
+We integrated the PPG and EDA sensors into two HTC Vive controllers. 
+- For the communication and local sensor control unit, we used an [ESP 8266 D1 Mini](www.openhacks.com/uploadsproductos/tutorial_nb.pdf) microcontroller offering both WiFi and Bluetooth connectivity. 
+- We use a [Groove galvanic skin response (GSR) sensor](https://wiki.seeedstudio.com/Grove-GSR_Sensor/) to measure EDA with a sample rate of 192 Hz.
+- We use a [Pulse Sensor](https://pulsesensor.com/) for PPG sensing with a sample rate of 50 Hz.
 
+The controllers have built-in batteries with 960mAh at 3.85V. However, this is under the minimum required 4V for the microcontroller. Thus,  we recommend to add a power bank connected to the ESP flash port instead. 
 
 ## Contribute
 
