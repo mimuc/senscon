@@ -1,8 +1,10 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-#define WIFI_SSID "SensCon"
-#define WIFI_PASS "wearedoingresearch."
+
+
+#define WIFI_SSID "Wifi Name"
+#define WIFI_PASS "Wifi Password."
 unsigned int UDP_PORT = 5550;
 IPAddress SendIP(192,168,0,255);
 WiFiUDP UDP;
