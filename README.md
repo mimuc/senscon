@@ -71,12 +71,12 @@ series = {CHI ’22}
 
 ```
 @misc{chiossi2023sensconapp,
-  author = {Chiossi, Francesco and Kosch, Thomas and Menghini, Luca, And Villa, Steeven and Mayer, Sven},
+ author={Chiossi, Francesco and Kosch, Thomas and Menghini, Luca and Vila, Steeven and Mayer, Sven},
   title = {{SensCon: Embedding Physiological Sensing into Virtual Reality Controllers}},
   year = {2023},
   publisher = {OSF},
   journal = {Open Science Framework},
   doi = {10.17605/OSF.IO/H9MJS},
-  howpublished = {\url{https://github.com/mimuc/Senscon}}
 }
+
 ```
