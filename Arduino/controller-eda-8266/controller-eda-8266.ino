@@ -2,8 +2,8 @@
 #include <WiFiUdp.h>
 
 // Set WiFi credentials
-#define WIFI_SSID "SensCon"
-#define WIFI_PASS "wearedoingresearch."
+#define WIFI_SSID "WifiName"
+#define WIFI_PASS "wifiPassword."
 
 const int GSR =  A0; //D8
 unsigned int UDP_PORT = 5551;
