@@ -25,7 +25,13 @@ The easiest way to contribute is to provide feedback! We would love to hear what
 
 Copyright &copy; 2023. [LMU Munich Media Informatics Group](https://www.medien.ifi.lmu.de). All rights reserved.
 
-The [dataset](./dataset) itself, available in [Creative Commons Public Domain Dedication (CC-0)](https://creativecommons.org/share-your-work/public-domain/cc0/), represented the results from consented anonymous participants and was collected by Francesco Chiossi. The contained "source code" (i.e., Python and R scripts and Jupyter Notebooks) of this work is made available under the terms of [GNU GPLv3](./LICENSE). They are fully available also in the [Open Science Framework](https://osf.org/share-your-work/public-domain/cc0/)
+The [dataset](./dataset) itself, available in [Creative Commons Public Domain Dedication (CC-0)](https://creativecommons.org/share-your-work/public-domain/cc0/), represented the results from consented anonymous participants and was collected by Francesco Chiossi. The contained "source code" (i.e., Python and R scripts and Jupyter Notebooks) of this work is made available under the terms of [GNU GPLv3](./LICENSE). They are fully available also in the [Open Science Framework](https://osf.org/share-your-work/public-domain/cc0/).
+The [./Study1/Step01_Image_preprocessing.py](./Study1/Step01_Image_preprocessing.py) provides the code for image perspective transformation.
+The [./Study1/Step02_AreaCalc.py](./Study1/Step02_AreaCalc.py) provides the code for replicating the results from Study 1.
+The [./Study 2/Step1-Results-SensCon.md](./Study 2/Step1-Results-SensCon.md) provides the code for reading the LSL output from SensCon.
+The [./Study 2/Step2-Plots.md](./Study 2/Step2-Plots.md) provides the code for preprocessing and replicating the results and figures from Study 2 in the paper.
+The [./Study 2/Step3-BlandAltman_analyses.md](./Study 2/Step3-BlandAltman_analyses.md) provides the commented code for Bland-Altman analysis.
+
 
 ## Citing the Paper and Application
 
