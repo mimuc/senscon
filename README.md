@@ -15,6 +15,12 @@ DOI: https://doi.org/10.1145/3491102.3517593
 The paper is available in [chiossi2023senscon.pdf](./chiossi2023senscon.pdf).
 
 # Application 
+- The [./Senscon/](./Senscon) provides Unity scene with the different tasks used for the validation of Senscon. 
+- The [./Arduino/](./Arduino) provides the Arduino  code to create the LSL stream from the Arduino Sensors.
+- The [./Server/](./Server) provides Python code to receive the LSL stream from the Arduino Sensors.
+- The [./Schematics/](./Schematics) provides the SensCon schematics for both EDA and PPG sensors. 
+
+## Materials
 
 
 ## Contribute
