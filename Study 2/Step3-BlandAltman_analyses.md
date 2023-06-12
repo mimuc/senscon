@@ -854,5 +854,4 @@ ggsave("RESULTS/BAplots_PPGMean.tiff",plot=p,dpi=300,width=16,height=8)
 
 - Menghini, L., Cellini, N., Goldstone, A., Baker, F. C., & de Zambotti, M. (2020). A standardized framework for testing the performance of sleep-tracking technology: Step-by-step guidelines and open-source code. Sleep, Accepted M. https://doi.org/10.1093/sleep/zsaa170
 
-## R packages
 
