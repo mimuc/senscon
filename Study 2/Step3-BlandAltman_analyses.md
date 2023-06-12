@@ -1,26 +1,3 @@
----
-title: "SensCon: Embedding Physiological Sensing into Virtual Reality Controllers"
-subtitle: "Bland-Altman analysis report, code, and full output"
-author: "Luca Menghini, PhD, Department of Psychology and Cognitive Science, University of Trento, Italy"
-date: "`r Sys.Date()`"
-bibliography: [packagesDataProc.bib]
-output:
-  html_document:
-    df_print: paged
-    toc: true
-    toc_float: true
-    toc_depth: 4
-    css: styles.css
-  pdf_document: default
-  word_document: default
-  theme: united
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-<br>
 
 # Aims and content
 
