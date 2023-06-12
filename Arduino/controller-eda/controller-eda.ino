@@ -3,8 +3,8 @@
 
 // WiFi network name and password:
 //TODO: update network credentials if needed
-const char * networkName = "HCUM";
-const char * networkPswd = "wearedoingresearch.";
+const char * networkName = "WifiName";
+const char * networkPswd = "WifiPassword.";
 
 //sensor pin
 #define SENSOR_PIN_1 2
