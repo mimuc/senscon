@@ -1,4 +1,4 @@
-# [SensCon: Embedding Physiological Sensing into Virtual Reality Controllers](./chiossi2023short.senscon.pdf)
+# [SensCon: Embedding Physiological Sensing into Virtual Reality Controllers](./chiossi2023senscon.pdf)
 
 This repository contains Unity Project and PPG and EDA data logging system for the Mobile HCI '23 full paper "SensCon: Embedding Physiological Sensing into Virtual Reality Controllers"
 
